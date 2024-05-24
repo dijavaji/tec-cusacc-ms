@@ -1,12 +1,18 @@
 package ec.com.technoloqie.api.account.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Collection;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -42,33 +48,36 @@ public class Account {
 	
 	@Column(name="CREATEDDATE",nullable=false)
 	@Temporal(TemporalType.DATE)
-	private Date createdDate;
+	private LocalDate createdDate;
 	
 	@Column(name="MODIFIEDBY")
 	private String modifiedBy;
 	
 	@Column(name="MODIFIEDDATE")
 	@Temporal(TemporalType.DATE)
-	private Date modifiedDate;
+	private LocalDate modifiedDate;
 	
 	@Column(name="STATUS")
 	private Boolean status;
 	
-	/*@ManyToOne
+	@Column(name="CUSTOMERID",nullable=false)
+	private Integer customerId;
+	
+	@ManyToOne
 	@JoinColumn(name="ACCTYPID",nullable=false)
 	private AccountType accountType;
 	
-	@ManyToOne
-	@JoinColumn(name="CUSTOMERID",nullable=false)
-	private Customer customer;
+	//@ManyToOne
+	//@JoinColumn(name="CUSTOMERID",nullable=false)
+	//private Customer customer;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "ACCOUNTID")
-	private Collection<AccountTransaction> accTranCol;*/
+	private Collection<AccountTransaction> accTranCol;
 	
 	@PrePersist 
 	public void prePersist() {
-		createdDate = new Date();
+		createdDate = LocalDate.now();
 		status = Boolean.TRUE;
 	}
 

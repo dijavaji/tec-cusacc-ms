@@ -1,20 +1,20 @@
 package ec.com.technoloqie.api.account.commons.exception;
 
-public class AccountException extends RuntimeException{
+public class AccountWSException extends RuntimeException{
 	
-	public AccountException() {
+	public AccountWSException() {
         super();
     }
     
-	public AccountException (String msg, Throwable nested) {
+	public AccountWSException (String msg, Throwable nested) {
         super(msg, nested);
     }
     
-	public AccountException (String message) {
+	public AccountWSException (String message) {
         super(message);
     }
     
-	public AccountException(Throwable nested) {
+	public AccountWSException(Throwable nested) {
         super(nested);
 	}
 	

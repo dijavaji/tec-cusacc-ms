@@ -1,6 +1,6 @@
 package ec.com.technoloqie.api.account.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,9 +17,9 @@ public class TransactionDto {
 	private Integer accountType;
 	private Double balanceInit;
 	private String createdBy;
-	private Date createdDate;
+	private LocalDate createdDate;
 	private String modifiedBy;
-	private Date modifiedDate;
+	private LocalDate modifiedDate;
 	private Boolean status;
 	
 }

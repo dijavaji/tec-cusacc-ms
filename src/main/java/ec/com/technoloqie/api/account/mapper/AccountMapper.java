@@ -14,8 +14,10 @@ public class AccountMapper {
 				accountDto.getCreatedDate(),
 				accountDto.getModifiedBy(),
 				accountDto.getModifiedDate(),
-				accountDto.getStatus()
-				);
+				accountDto.getStatus(),
+				accountDto.getCustomerId(),
+				null,
+				null);
 		return account;
 	}
 	
@@ -28,7 +30,8 @@ public class AccountMapper {
 				account.getCreatedDate(),
 				account.getModifiedBy(),
 				account.getModifiedDate(),
-				account.getStatus()
+				account.getStatus(),
+				account.getCustomerId()
 				);
 		return accountDto;
 	}

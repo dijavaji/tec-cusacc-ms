@@ -1,7 +1,7 @@
 package ec.com.technoloqie.api.account.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,7 +14,6 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,14 +42,14 @@ public class Transaction implements Serializable{
 	
 	@Column(name="CREATEDDATE",nullable=false)
 	@Temporal(TemporalType.DATE)
-	private Date createdDate;
+	private LocalDate createdDate;
 	
 	@Column(name="MODIFIEDBY")
 	private String modifiedBy;
 	
 	@Column(name="MODIFIEDDATE")
 	@Temporal(TemporalType.DATE)
-	private Date modifiedDate;
+	private LocalDate modifiedDate;
 	
 	@Column(name="STATUS")
 	private Boolean status;
@@ -61,7 +60,7 @@ public class Transaction implements Serializable{
 	
 	@PrePersist 
 	public void prePersist() {
-		createdDate = new Date();
+		createdDate = LocalDate.now();
 		status = Boolean.TRUE;
 	}
 	

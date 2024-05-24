@@ -4,6 +4,6 @@ import ec.com.technoloqie.api.account.entity.AccountTransaction;
 
 public interface IAccountTransactionService {
 	
-	AccountTransaction createAccountTransaction(AccountTransaction transaction);
+	AccountTransaction createAccountTransaction(AccountTransaction transAcc);
 
 }
