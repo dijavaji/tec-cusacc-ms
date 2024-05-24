@@ -42,7 +42,7 @@ public class AccountServiceImpl implements IAccountService{
 	@Override
 	public void deleteAccount(Integer code) throws AccountWSException{
 		getAccountById(code);
-		accountRepository.deleteById(code);;
+		accountRepository.deleteById(code);
 	}
 
 	@Override
